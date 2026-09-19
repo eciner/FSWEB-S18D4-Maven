@@ -2,8 +2,12 @@ package com.workintech.s18d1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
+import com.workintech.s18d1.util.BurgerValidation;
 
 @SpringBootApplication
+@Import(BurgerValidation.class)
 public class S18d1Application {
 
 	public static void main(String[] args) {
