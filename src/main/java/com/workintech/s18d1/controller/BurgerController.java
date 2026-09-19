@@ -58,7 +58,7 @@ public class BurgerController {
         if (id != null) {
             burger.setId(id);
         }
-        burgerValidation.validate(burger);
+        burgerValidation.validateForUpdate(burger);
         return burgerDao.update(burger);
     }
 

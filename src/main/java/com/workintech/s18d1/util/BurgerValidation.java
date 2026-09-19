@@ -10,8 +10,17 @@ public class BurgerValidation {
     public void validate(Burger burger) {
         if (burger == null || burger.getName() == null || burger.getName().isBlank()
                 || burger.getPrice() == null || burger.getPrice() <= 0
-                || burger.getIsVegan() == null || burger.getBreadType() == null
+            || burger.getBreadType() == null
                 || burger.getContents() == null || burger.getContents().isBlank()) {
+            throw new BurgerException("Invalid burger", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public void validateForUpdate(Burger burger) {
+        if (burger == null
+                || (burger.getName() != null && burger.getName().isBlank())
+                || (burger.getPrice() != null && burger.getPrice() <= 0)
+                || (burger.getContents() != null && burger.getContents().isBlank())) {
             throw new BurgerException("Invalid burger", HttpStatus.BAD_REQUEST);
         }
     }
